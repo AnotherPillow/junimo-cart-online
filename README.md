@@ -5,6 +5,10 @@ A recreation of the Junimo Cart minigame from Stardew Valley.
 ![Demo](https://files.catbox.moe/4q3xgu.gif)
 May appear a bit laggy due to the gif format and compression by ShareX.
 
+## Play
+
+[Github Pages](https://anotherpillow.github.io/junimo-cart-online/)
+
 ## Credits
 
 - All assets and the idea are from Stardew Valley.
