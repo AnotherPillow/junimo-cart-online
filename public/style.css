@@ -1,0 +1,107 @@
+.junimo {
+    width: 64px;
+    height: 64px;
+    /*make the animation snap to the next frame every step instead of it being a smooth transition*/
+    animation: junimo 0.25s infinite;
+    
+    background: url('../images/junimo4.png');
+    z-index: 20;
+    position: relative;
+    margin-left: 10px;
+}
+.air {
+    transform: rotate(-45deg);
+    margin-top: 10px;
+}
+.cart {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 8px;
+    top:10px;
+    z-index: 10;
+    background: url('../images/cart4_0.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.junimoContainer {
+    position: absolute;
+    left:100px;
+    height: 90vh;
+    width: 96px;
+}
+.cartContainer {
+    vertical-align: bottom;
+    position: absolute;
+    left: 0;
+}
+.higherCart {
+    position: absolute;
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    left: 8px;
+    top:10px;
+    background: url('../images/cart4_1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.mapColumn {
+    height: 832px;
+    width:64px;
+    
+    
+}
+body {
+    background-color:rgb(32, 32, 32);
+    /*Stardew valley .ttf font by u/Cowsplay*/
+    font-family: 'Stardew Valley';
+    
+}
+.bottom {
+    position: absolute;
+    bottom: var(--bottom-amount);
+    width:64px;
+    height:64px;
+}
+.mapContainer {
+    /* margin-left:32px; */
+    position: absolute;
+    bottom:0;
+    display:flex;
+}
+.hide {
+    display:none;
+}
+.modal {
+    width:500px;
+    height:300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../images/textBox2.png');
+    text-align: center;
+}
+.modalContent {
+    margin-top:80px;
+}
+.modalContent>h1 {
+    font-size: 3em;
+}
+.modalContent>button {
+    outline: none;
+    border: none;
+    padding: 0;
+    width: 150px;
+    height: 34px;
+    background-image: url('../images/replaybutton.png');
+}
+.modalContent>button:hover {
+    background-image: url('../images/replaybutton-hover.png');
+    background-position-y: 34px;
+}
+@font-face {
+    font-family: 'Stardew Valley';
+    src: url('../fonts/Stardew_Valley.ttf');
+}
