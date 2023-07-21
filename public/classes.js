@@ -138,7 +138,8 @@ class Game {
             }
             this.mapLeft = this.map.container.style.left.replace('px', '');
             this.map.container.style.left = (parseInt(this.mapLeft) - 1).toString() + 'px';
-            if (this.loops % 64 === 0) {
+            let mod = this.loops % 64;
+            if (mod === 0) {
 
                 this.removeCol++;
                 this.score++;
@@ -152,10 +153,10 @@ class Game {
 
                 //add a new column
                 this.map.columns.push(new MapColumn(this.map.backgroundType));
-            } else if (this.loops % 64 === 32) {
+            } else if (mod === 48) {
                 this.lowestValidY = (this.map.columns[Math.ceil((this.loops / 64)) + 1].bottomCount * 64) + 20;
-                this.groundLevel = this.lowestValidY;
             }
+            this.groundLevel = this.lowestValidY;
             let lengthPressed = Date.now() - this.spaceStartMs;
 
             if (lengthPressed < 500) {
