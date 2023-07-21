@@ -173,24 +173,47 @@ class Game {
             
         }, 10);
     }
+    OnDown(e) {
+        if (this.cart.airborne) return;
+        this.ignoreAir = true;
+        this.spaceStartMs = Date.now();
+        this.ignoreAir = false;
+        this.cart.Airborne();
+        this.toJump = 1;
+    }
+
+    OnUp(e) {
+        this.spaceDurationMs = Date.now() - this.spaceStartMs;
+    }
+
     AddEventListeners() {
         document.addEventListener('keydown', (e) => {
             console.log(this.cart.airborne)
-            if (e.key == ' ' && !this.cart.airborne) {
-                this.ignoreAir = true;
-                this.spaceStartMs = Date.now();
-                this.ignoreAir = false;
-                this.cart.Airborne();
-                this.toJump = 1;
-            }
+            if (e.key !== ' ') return;
+            this.spacePressed = true;
+            this.OnDown(e);
+        
+            
         });
         document.addEventListener('keyup', (e) => {
-            if (e.key == ' ') {
-                this.spacePressed = false;
+            if (e.key !== ' ') return;
+            this.spacePressed = false;
 
-                this.spaceDurationMs = Date.now() - this.spaceStartMs;
-            }
+            this.OnUp(e);
+        
         });
+
+        document.querySelector('.mapContainer').addEventListener('mousedown', (e) => {
+            this.spacePressed = true;
+            this.OnDown(e);
+        });
+
+        document.querySelector('.mapContainer').addEventListener('mouseup', (e) => {
+            this.spacePressed = false;
+            this.OnUp(e);
+        });
+
+
     }
     GameOver() {
         clearInterval(this.loopInterval);
