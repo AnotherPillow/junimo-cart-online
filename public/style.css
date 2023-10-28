@@ -56,6 +56,8 @@ body {
     background-color:rgb(32, 32, 32);
     /*Stardew valley .ttf font by u/Cowsplay*/
     font-family: 'Stardew Valley';
+
+    overflow: hidden;
     
 }
 .bottom {
