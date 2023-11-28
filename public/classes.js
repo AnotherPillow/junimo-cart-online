@@ -233,7 +233,9 @@ class Map {
     constructor() {
         this.container = document.querySelector('.mapContainer');
         for (let i = 0; i < this.maxCols; i++) {
-            this.columns[i] = new MapColumn(this.backgroundType);
+            this.columns[i] = new MapColumn(this.backgroundType, 
+                    i < 5 ? 5 : null
+                );
             //check if it is in extra columns
             // if (i > this.maxCols - this.extraCols - 1) {
             //     this.columns[i].column.classList.add('hide');
@@ -249,11 +251,11 @@ class Map {
 class MapColumn {
     maxHeight = 9;
     bottomEls = [];
-    constructor(backgroundType=0) {
+    constructor(backgroundType = 0, forcedHeight = null) {
         this.container = document.querySelector('.mapContainer');
         
         this.height = Math.floor(Math.random() * this.maxHeight) + 1;
-        this.bottomCount = this.height - 1; 
+        this.bottomCount = forcedHeight ?? this.height - 1; 
         
         this.column = document.createElement('div');
         this.column.classList.add('mapColumn');
